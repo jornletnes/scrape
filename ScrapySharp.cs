@@ -16,10 +16,11 @@ namespace scrape
             //_browser.UseDefaultCookiesParser = false;
             _browser.IgnoreCookies = true;
 
-            int numLevels = 150;
+            int numLevels = 10;
             //var mainPageLinks = GetMainPageLinks("https://p4d.developer.delfi.cloud.slb-ds.com/");
-            PrintLinks("https://www.software.slb.com/", numLevels); // 150
-            //PrintLinks("https://db.no/", numLevels); //10
+            PrintLinks("https://p4d.developer.delfi.cloud.slb-ds.com/", numLevels);
+            //PrintLinks("https://www.software.slb.com/", 150);
+            //PrintLinks("https://db.no/", 10);
         }
 
         private static void PrintLinks(string url, int numLevels)
