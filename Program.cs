@@ -11,7 +11,9 @@ namespace scrape
         static void Main(string[] args)
         {
             ScrapySharp.Run();
-            //ScrapingToolkit.Run();
+
+            //ScrapingToolkit scrapingToolkit = new ScrapingToolkit();
+            //scrapingToolkit.Run();
         }
     }
 }
