@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Scraping" Version="2.0.0.7" />
+    <!-- <PackageReference Include="Scraping" Version="2.0.0.7" /> -->
     <PackageReference Include="ScrapySharp" Version="3.0.0" />
   </ItemGroup>
 

@@ -11,7 +11,8 @@ namespace scrape
         private static ScrapingBrowser _browser = new ScrapingBrowser();
         private static List<string> _visitedLinks = new List<string>();
         private static int[] _numLinksAtLevel;
-        private static int _depth = 100;
+        private static int[] _numPagesAtLevel;
+        private static int _depth = 10;
 
         public static void Run()
         {
@@ -19,12 +20,13 @@ namespace scrape
             _browser.IgnoreCookies = true;
 
             _numLinksAtLevel = new int[_depth];
+            _numPagesAtLevel = new int[_depth];
 
 
             //var mainPageLinks = GetMainPageLinks("https://p4d.developer.delfi.cloud.slb-ds.com/");
             //PrintLinks("https://p4d.developer.delfi.cloud.slb-ds.com/solutions/dataecosystem/apis/search-service", 10);
-            PrintLinks("https://www.software.slb.com/", 0); // 100
-            //PrintLinks("https://db.no/", 0); // 10
+            //PrintLinks("https://www.software.slb.com/", 0); // 100
+            PrintLinks("https://db.no/", 0); // 10
 
             PrintWidth();
         }
@@ -37,9 +39,9 @@ namespace scrape
             Console.WriteLine("How wide have you jumped?");
             Console.WriteLine("");
 
-            foreach (int level in _numLinksAtLevel)
+            for (int i = 0; i < _depth; ++i)
             {
-                Console.WriteLine(level);
+                Console.WriteLine("I found " + _numLinksAtLevel[i] + " links in " + _numPagesAtLevel[i] + " pages.");
             }
         }
 
@@ -47,6 +49,8 @@ namespace scrape
         {
             if (numLevel >= _depth)
                 return;
+
+            _numPagesAtLevel[numLevel] += 1;
 
             try
             {
@@ -60,7 +64,7 @@ namespace scrape
                         continue;
 
                     _visitedLinks.Add(currentLink);
-                    Console.WriteLine(currentLink);
+                    //Console.WriteLine(currentLink);
                     _numLinksAtLevel[numLevel] += 1;
                     PrintLinks(currentLink, numLevel + 1);
                 }

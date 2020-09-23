@@ -1,5 +1,5 @@
 ﻿using System.Collections.Specialized;
-using Scraping.Web;
+//using Scraping.Web;
 
 namespace scrape
 {
@@ -12,6 +12,7 @@ namespace scrape
 
         private void Run(string url)
         {
+            /*
             var ret = new HttpRequestFluent(true);
             ret.OnLoad += Ret_OnLoad;
             NameValueCollection parameters = new NameValueCollection();
@@ -38,12 +39,15 @@ namespace scrape
                 .WithTimeoutRequest(100)
                 .WithUserAgent("User-Agent")
             .Load();
+            */
         }
 
+        /*
         private void Ret_OnLoad(object sender, RequestHttpEventArgs e)
         {
             string page = e.HtmlPage;
             ResponseHttp response = e.ResponseHttp;
         }
+        */
     }
 }
